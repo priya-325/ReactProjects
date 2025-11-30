@@ -3,7 +3,7 @@
 2. Meme
 3. Tenzies
 4. Weather Dashboard
-## Weather Dashboard
+# Weather Dashboard
 
 - This project involves building a simple Weather Dashboard using React.js. The app will fetch real-time weather data from the OpenWeather API and display it in a user-friendly interface. Users can search for a city to see its current weather conditions, including temperature, humidity, and forecast.
 
