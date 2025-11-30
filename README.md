@@ -1,8 +1,14 @@
 # Projects
+
+Create App: npm create vite@latest {appName}
+Run App: npm run dev
+
 1. Chef Claude
 2. Meme
 3. Tenzies
-4. Weather Dashboard
+4. Assembly: Endgame
+5. Weather Dashboard
+
 # Weather Dashboard
 
 - This project involves building a simple Weather Dashboard using React.js. The app will fetch real-time weather data from the OpenWeather API and display it in a user-friendly interface. Users can search for a city to see its current weather conditions, including temperature, humidity, and forecast.
@@ -48,4 +54,3 @@
 4. Create a `.env` file and add `REACT_APP_WEATHER_API_KEY=<your-api-key>`
 5. Run the app: `npm start`
 6. Deploy to Vercel/Netlify for a live demo.
-
