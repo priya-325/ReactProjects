@@ -1,12 +1,17 @@
 import { useState } from "react";
 import "./App.css";
+import Header from "./components/Header";
+import Entry from "./components/Entry";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-      <h1>hi</h1>
+      <Header />
+      <main className="container">
+        <Entry />
+      </main>
     </>
   );
 }
