@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import IngredientsList from "./IngredientsList";
 import ClaudeRecipe from "./ClaudeRecipe";
 import { getRecipeFromChefClaude, getRecipeFromMistral } from "../ai";
+import { useEffect } from "react";
 
 /**
  * Challenge: Get a recipe from the AI!
@@ -44,7 +45,13 @@ export default function Main() {
   const [ingredients, setIngredients] = useState([]);
   // const [recipeShown, setRecipeShown] = useState(false);
   const [recipe, setRecipe] = useState("");
-
+  const recipeSection = useRef(null);
+  // console.log(recipeSection);
+  useEffect(() => {
+    if (recipe !== "" && recipeSection.current !== null) {
+      recipeSection.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [recipe]);
   async function getRecipe() {
     // setRecipeShown((prevShown) => !prevShown);
     const recipeMarkdown = await getRecipeFromChefClaude(ingredients);
@@ -73,7 +80,11 @@ export default function Main() {
       </form>
       {/* <ul>{ingredientsListItems}</ul> */}
       {ingredients.length > 0 && (
-        <IngredientsList ingredients={ingredients} getRecipe={getRecipe} />
+        <IngredientsList
+          ref={recipeSection}
+          ingredients={ingredients}
+          getRecipe={getRecipe}
+        />
       )}
       {recipe && <ClaudeRecipe recipe={recipe} />}
     </main>
