@@ -11,5 +11,5 @@ Run App: npm run dev
 5. SoundPads
 6. MemeGenerator
 7. Tenzies
-8. Assembly: Endgame
-9. Weather Dashboard
+8. AssemblyEndgame
+9. WeatherDashboard
