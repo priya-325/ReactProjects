@@ -4,7 +4,7 @@
 
 # Tech Stack
 
-- Frontend: React.js, JavaScript, CSS
+- Frontend: React.js, JavaScript, CSS(tailwindcss)
 - API: OpenWeather API (free)
 - State Management: React Context API or Redux (optional)
 
