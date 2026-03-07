@@ -10,6 +10,7 @@ export default function SearchBar(props) {
       <form className="flex flex-1 gap-2">
         <input
           type="text"
+          value={props.city}
           placeholder="Enter city..."
           onChange={(e) => {
             props.setCity(e.target.value);
