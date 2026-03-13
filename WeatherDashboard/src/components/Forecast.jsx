@@ -101,6 +101,24 @@ export default function Forecast(props) {
                   {Math.round(toFahrenheit(day.main.temp))}°F
                 </p>
               </div>
+              <div className="mt-3">
+                <p>Min Temp</p>
+                <p className="text-lg font-semibold">
+                  {Math.round(day.main.temp_min)}°C
+                </p>
+                <p className="text-slate-400 text-sm">
+                  {Math.round(toFahrenheit(day.main.temp_min))}°F
+                </p>
+              </div>
+              <div className="mt-3">
+                <p>Max Temp</p>
+                <p className="text-lg font-semibold">
+                  {Math.round(day.main.temp_max)}°C
+                </p>
+                <p className="text-slate-400 text-sm">
+                  {Math.round(toFahrenheit(day.main.temp_max))}°F
+                </p>
+              </div>
             </div>
           ))}
         </div>
