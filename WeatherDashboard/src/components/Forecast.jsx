@@ -14,6 +14,11 @@ export default function Forecast(props) {
     return `https://openweathermap.org/img/wn/${code}@2x.png`;
   }
   // console.log(props.fiveDayForecast);
+
+  const nextDays = props.fiveDayForecast.list.filter((item) =>
+    item.dt_txt.includes("12:00:00"),
+  );
+  // console.log(nextDays);
   return (
     <div className="space-y-8">
       {/* Current Weather Section */}
@@ -71,8 +76,33 @@ export default function Forecast(props) {
       <section>
         <h3 className="text-2xl font-semibold mb-4">5-Day Forecast</h3>
         {/* forecast card */}
-        <div>
-          <p>{props.fiveDayForecast.list[0].dt_txt}</p>
+        <div className="grid gap-4">
+          {nextDays.map((day) => (
+            <div
+              key={day.dt}
+              className="bg-slate-900/50 rounded-2xl p-4 text-center"
+            >
+              <p className="text-slate-400 text-sm">{day.dt_txt}</p>
+              <img
+                src={icon(day.weather[0].icon)}
+                alt={day.weather[0].description}
+                className="w-16 h-16 mx-auto"
+              />
+
+              <p className="text-slate-300 capitalize text-sm">
+                {day.weather[0].description}
+              </p>
+
+              <div className="mt-3">
+                <p className="text-lg font-semibold">
+                  {Math.round(day.main.temp)}°C
+                </p>
+                <p className="text-slate-400 text-sm">
+                  {Math.round(toFahrenheit(day.main.temp))}°F
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
     </div>
