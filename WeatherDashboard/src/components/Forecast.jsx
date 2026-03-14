@@ -22,10 +22,10 @@ export default function Forecast(props) {
   return (
     <div className="space-y-8">
       {/* Current Weather Section */}
-      <section className="grid gap-6">
+      <section className="grid grid-cols-1 gap-6">
         {/* main weather card */}
         <div className="bg-slate-900/50 rounded-2xl p-6">
-          <div className="flex items-center justify-between gap-4">
+          <div className="flex items-center justify-between bg-slate-800 rounded-xl p-4 mb-4">
             <div>
               <p className="text-slate-400 text-sm">Current Weather</p>
               {/* city name and country */}
@@ -45,7 +45,7 @@ export default function Forecast(props) {
             />
           </div>
           {/* Temperature in Celsius and Fahrenheit */}
-          <div className="mt-6">
+          <div className="bg-slate-800 rounded-xl p-4">
             <p className="text-5xl font-bold">
               {Math.round(props.currentWeather.main.temp)}°C
             </p>
@@ -55,16 +55,16 @@ export default function Forecast(props) {
           </div>
         </div>
         {/* weather details card */}
-        <div className="bg-slate-900/50 rounded-2xl p-6 grid grid-cols-1 gap-4">
+        <div className="bg-slate-900/50 rounded-2xl p-6">
           {/* humidity */}
-          <div className="bg-slate-800 rounded-xl p-4">
+          <div className="flex items-center justify-between bg-slate-800 rounded-xl p-4 mb-4">
             <p className="text-slate-400 text-sm">Humidity</p>
             <p className="text-2xl font-semibold">
               {props.currentWeather.main.humidity}%
             </p>
           </div>
           {/* wind speed */}
-          <div className="bg-slate-800 rounded-xl p-4">
+          <div className="flex items-center justify-between bg-slate-800 rounded-xl p-4">
             <p className="text-slate-400 text-sm">Wind Speed</p>
             <p className="text-2xl font-semibold">
               {props.currentWeather.wind.speed} m/s
@@ -73,10 +73,10 @@ export default function Forecast(props) {
         </div>
       </section>
       {/* 5-day forecast section */}
-      <section>
-        <h3 className="text-2xl font-semibold mb-4">5-Day Forecast</h3>
+      <section className="grid gap-6">
+        <h3 className="text-2xl font-semibold text-center">5-Day Forecast</h3>
         {/* forecast card */}
-        <div className="grid gap-4">
+        <div className="grid grid-cols-5 gap-3">
           {nextDays.map((day) => (
             <div
               key={day.dt}
@@ -104,19 +104,19 @@ export default function Forecast(props) {
               <div className="mt-3">
                 <p>Min Temp</p>
                 <p className="text-lg font-semibold">
-                  {Math.round(day.main.temp_min)}°C
+                  {Math.floor(day.main.temp_min)}°C
                 </p>
                 <p className="text-slate-400 text-sm">
-                  {Math.round(toFahrenheit(day.main.temp_min))}°F
+                  {Math.floor(toFahrenheit(day.main.temp_min))}°F
                 </p>
               </div>
               <div className="mt-3">
                 <p>Max Temp</p>
                 <p className="text-lg font-semibold">
-                  {Math.round(day.main.temp_max)}°C
+                  {Math.ceil(day.main.temp_max)}°C
                 </p>
                 <p className="text-slate-400 text-sm">
-                  {Math.round(toFahrenheit(day.main.temp_max))}°F
+                  {Math.ceil(toFahrenheit(day.main.temp_max))}°F
                 </p>
               </div>
             </div>
