@@ -24,12 +24,12 @@ export default function SearchBar(props) {
           Search
         </button>
       </form>
-      <div className="flex items-center gap-2">
+      {/* <div className="flex items-center gap-2">
         <div>
           <button>°C</button>
           <button>°F</button>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
