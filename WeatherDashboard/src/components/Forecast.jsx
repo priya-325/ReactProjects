@@ -22,10 +22,10 @@ export default function Forecast(props) {
   return (
     <div className="space-y-8">
       {/* Current Weather Section */}
-      <section className="grid grid-cols-1 gap-6">
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* main weather card */}
         <div className="bg-slate-900/50 rounded-2xl p-6">
-          <div className="flex items-center justify-between bg-slate-800 rounded-xl p-4 mb-4">
+          <div className="flex flex-col sm:flex-row items-center justify-between bg-slate-800 rounded-xl p-4 mb-4 gap-4">
             <div>
               <p className="text-slate-400 text-sm">Current Weather</p>
               {/* city name and country */}
@@ -46,7 +46,7 @@ export default function Forecast(props) {
           </div>
           {/* Temperature in Celsius and Fahrenheit */}
           <div className="bg-slate-800 rounded-xl p-4">
-            <p className="text-5xl font-bold">
+            <p className="text-4xl sm:text-5xl font-bold">
               {Math.round(props.currentWeather.main.temp)}°C
             </p>
             <p className="text-slate-400 mt-2 text-lg">
@@ -82,7 +82,9 @@ export default function Forecast(props) {
               key={day.dt}
               className="bg-slate-900/50 rounded-2xl p-4 text-center"
             >
-              <p className="text-slate-400 text-sm">{day.dt_txt}</p>
+              <p className="text-slate-400 text-sm sm:text-sm wrap-break-word">
+                {day.dt_txt}
+              </p>
               <img
                 src={icon(day.weather[0].icon)}
                 alt={day.weather[0].description}
